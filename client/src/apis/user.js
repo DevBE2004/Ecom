@@ -77,3 +77,22 @@ export const apiUpdateWishlist = (pid) =>
     url: `/user/wishlist/` + pid,
     method: "put",
   });
+
+export const apiGetCredentialsFromGoogle = (accessToken) =>
+  axios({
+    method: "get",
+    url:
+      "https://www.googleapis.com/oauth2/v1/userinfo?access_token=" +
+      accessToken,
+  });
+export const apiCheckNewUser = (email) =>
+  axios({
+    method: "get",
+    url: "/user/has-user/" + email,
+  });
+export const apiSiginWithGoogle = (data) =>
+  axios({
+    method: "post",
+    url: "/user/google/",
+    data,
+  });
