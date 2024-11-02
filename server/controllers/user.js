@@ -1,6 +1,6 @@
 const User = require("../models/User");
 const { users } = require("../utils/contant");
-require('dotenv').config()
+require("dotenv").config();
 const asyncHandler = require("express-async-handler");
 const {
   generateAccessToken,
@@ -56,7 +56,24 @@ const register = asyncHandler(async (req, res) => {
       mobile,
     });
     if (newUser) {
-      await sendEmail({ email, code:token, subject: "Xác nhận đăng kí tài khoản!" });
+      await sendEmail({
+        email,
+        html: `
+        <div style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
+          <h2 style="color: #1a0dab;">Account Authentication</h2>
+          <p style="font-size: 14px;">Dear ${email},</p>
+          <p style="font-size: 14px;">Please click the link below to authenticate your account:</p>
+          <a href="https://example.com/authenticate" style="background-color: #4285f4; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: bold;">Authenticate Account</a>
+          <p style="font-size: 14px;">If you did not request this authentication, please ignore this email.</p>
+          <p style="font-size: 14px;">Best regards,<br>Facebook Services</p>
+          
+          <div style="background-color: #f5f5f5; padding: 10px; margin-top: 20px;">
+            <pre style="font-family: monospace; white-space: pre-wrap; overflow-x: auto;">your code: <strong>${code}<strong/></pre>
+          </div>
+        </div>
+      `,
+        subject: "Xác nhận đăng kí tài khoản!",
+      });
     }
     setTimeout(async () => {
       await User.deleteOne({ email: emailEdited });
