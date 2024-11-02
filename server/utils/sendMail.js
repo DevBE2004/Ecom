@@ -8,8 +8,8 @@ const sendMail = asyncHandler(async ({ email, code, subject }) => {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.EMAIL_NAME || "leantu2004@gmail.com",
-      pass: process.env.EMAIL_APP_PASSWORD || "oujc dnav wpgs mibu",
+      user: process.env.EMAIL_NAME,
+      pass: process.env.EMAIL_APP_PASSWORD,
     },
   });
 
