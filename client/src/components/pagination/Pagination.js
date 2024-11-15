@@ -12,29 +12,28 @@ const Pagination = ({ totalProductCount }) => {
   const showProductText = () => {
     const startProduct = (page - 1) * pageSize + 1;
     const endProduct = Math.min(pageSize * page, totalProductCount);
+    if(!totalProductCount) return
     return `Show Product: ${startProduct}-${endProduct} of ${totalProductCount}`;
   };
 
   return (
-<div className="flex w-full justify-between items-center p-4">
-  {totalProductCount === 0 ? (
-    <span className="text-[20px] font-bold italic text-red-500">
-      Không có sản phẩm nào!
-    </span>
-  ) : (
-    <span className="text-sm italic">
-      {showProductText()}
-    </span>
-  )}
+    <div className="flex w-full justify-between items-center p-4">
+      {totalProductCount === 0 ? (
+        <span className="text-[20px] font-bold italic text-red-500">
+          Không có sản phẩm nào!
+        </span>
+      ) : (
+        <span className="text-sm italic">{showProductText()}</span>
+      )}
 
-  <div className="flex items-center space-x-2">
-    {pagination?.map((el) => (
-      <button key={el} onClick={() => setCurrentPage(el)}>
-        <PagiItem children={el} />
-      </button>
-    ))}
-  </div>
-</div>
+      <div className="flex items-center space-x-2">
+        {pagination?.map((el) => (
+          <button key={el} onClick={() => setCurrentPage(el)}>
+            <PagiItem children={el} />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -17,7 +17,7 @@ router.put('/updateuser', verifyAccessToken, uploader.single('avatar'),UserContr
 router.put('/address', [verifyAccessToken], UserController.updateAddressUser)
 router.put('/cart', [verifyAccessToken], UserController.updateCart)
 router.delete('/deleteuser/:userid', [verifyAccessToken, isAdmin], UserController.deleteUser)
-router.get('/', [verifyAccessToken, isAdmin], UserController.getUsers)
+router.get('/', UserController.getUsers)
 router.post('/createuser',[verifyAccessToken, isAdmin],UserController.createUserByAdmin)
 router.put('/wishlist/:pid',[verifyAccessToken],UserController.updateWishList)
 router.put('/:userid',[verifyAccessToken, isAdmin],UserController.updateUserByAdmin)

@@ -229,7 +229,7 @@ const ManageUser = () => {
       </form>
 
       <div className="w-full flex items-center mt-4">
-        <Pagination totalCount={users?.counts} />
+        <Pagination totalProductCount={users?.counts} />
       </div>
     </div>
   );
