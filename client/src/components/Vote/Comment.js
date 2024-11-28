@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import PropTypes from "prop-types";  // Import PropTypes
+import PropTypes from "prop-types";
 import avt from "assets/avt.png";
 import moment from "moment";
 import { numberToStar } from "utils/helpers";

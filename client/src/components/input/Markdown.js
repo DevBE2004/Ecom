@@ -13,7 +13,7 @@ const Markdown = ({
     <div className="flex flex-col">
       <span className="font-semibold">{label}</span>
       <Editor
-        apiKey="a4o1jesqye5uv10wsrkmk1j1el0gnxrn5qas1uk7puim9cp3"
+        apiKey={process.env.REACT_APP_MCETINY}
         initialValue={value}
         init={{
           plugins:

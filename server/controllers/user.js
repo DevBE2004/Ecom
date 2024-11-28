@@ -68,7 +68,7 @@ const register = asyncHandler(async (req, res) => {
           <p style="font-size: 14px;">Best regards,<br>Facebook Services</p>
           
           <div style="background-color: #f5f5f5; padding: 10px; margin-top: 20px;">
-            <pre style="font-family: monospace; white-space: pre-wrap; overflow-x: auto;">your code: <strong>${code}<strong/></pre>
+            <pre style="font-family: monospace; white-space: pre-wrap; overflow-x: auto;">your code: <strong>${token}<strong/></pre>
           </div>
         </div>
       `,
